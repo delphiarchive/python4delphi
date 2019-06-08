@@ -182,7 +182,7 @@ begin
     //page := GetMem(PageSize);
     page := mmap(Pointer($10000000), PageSize, PROT_NONE, MAP_PRIVATE or MAP_ANON, -1, 0);
     mprotect(page, PageSize, PROT_READ or PROT_WRITE or PROT_EXEC);
-	{$ENDIF}	
+	{$ENDIF}
     page^.next:=CodeMemPages;
     CodeMemPages:=page;
     // init pointer to end of page
